@@ -1,0 +1,3 @@
+# Only needed for the blurred background image and .ico icons.
+# The app still runs without it (plain background, text platform badges).
+Pillow>=10.0
