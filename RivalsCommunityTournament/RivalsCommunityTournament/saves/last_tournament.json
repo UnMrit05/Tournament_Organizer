@@ -1,0 +1,201 @@
+{
+  "status": "Bracket Setting",
+  "saved_at": "2026-10-09T10:48:19",
+  "state": {
+    "tournament_type": "mystery",
+    "bracket_type": "double",
+    "bracket_order": [
+      "Quill",
+      "Marrow",
+      "Ion",
+      "Fenwick",
+      "Sable",
+      "Juniper",
+      "Ember",
+      "Moss",
+      "Doba_Fett"
+    ],
+    "teams": [
+      {
+        "captain": "Quill",
+        "name": "Quill's Team",
+        "slots": [
+          "Onyx",
+          "Quorra",
+          "Gale",
+          "Pixel",
+          "Lumen"
+        ],
+        "slot_min_rank": [
+          "One Above All",
+          "Eternity",
+          "Celestial",
+          "Celestial",
+          "Celestial"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Marrow",
+        "name": "Marrow's Team",
+        "slots": [
+          "Echo_9",
+          "Grit",
+          "Priya",
+          "Wraith",
+          "Mox"
+        ],
+        "slot_min_rank": [
+          "Celestial",
+          "Diamond",
+          "Diamond",
+          "Grand Master",
+          "Diamond"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Ion",
+        "name": "Ion's Team",
+        "slots": [
+          "Abel",
+          "Birch",
+          "Yara",
+          "Umbra",
+          "Rune"
+        ],
+        "slot_min_rank": [
+          "Diamond",
+          "Diamond",
+          "Silver",
+          "Silver",
+          "Silver"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Fenwick",
+        "name": "Fenwick's Team",
+        "slots": [
+          "Yuki_R",
+          "Kilo",
+          "Drift",
+          "Ozzy",
+          "Rael"
+        ],
+        "slot_min_rank": [
+          "Diamond",
+          "Diamond",
+          "Eternity",
+          "Eternity",
+          "Celestial"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Sable",
+        "name": "Sable's Team",
+        "slots": [
+          "Six_Shooter",
+          "Jinx",
+          "Static",
+          "Cassius",
+          "Wisp"
+        ],
+        "slot_min_rank": [
+          "Platinum",
+          "Celestial",
+          "Platinum",
+          "Platinum",
+          "Platinum"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Juniper",
+        "name": "Juniper's Team",
+        "slots": [
+          "Delta",
+          "Xerus",
+          "Ezra",
+          "Talon",
+          "Cinder"
+        ],
+        "slot_min_rank": [
+          "Platinum",
+          "Gold",
+          "Gold",
+          "Gold",
+          "Silver"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Ember",
+        "name": "Ember's Team",
+        "slots": [
+          "Vex",
+          "Halo_Kid",
+          "Frostbyte",
+          "Ragna",
+          "Brynn"
+        ],
+        "slot_min_rank": [
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Moss",
+        "name": "Moss's Team",
+        "slots": [
+          "Solstice",
+          "Zephyr",
+          "Hexx",
+          "Nyx",
+          "Grubhub_9"
+        ],
+        "slot_min_rank": [
+          "Silver",
+          "Gold",
+          "Platinum",
+          "Platinum",
+          "Silver"
+        ],
+        "roles": {},
+        "characters": {}
+      },
+      {
+        "captain": "Doba_Fett",
+        "name": "Doba_Fett's Team",
+        "slots": [
+          "Torque",
+          "Halcyon",
+          "Prism",
+          "Flux",
+          "Kestrel"
+        ],
+        "slot_min_rank": [
+          "Silver",
+          "Bronze",
+          "Bronze",
+          "Bronze",
+          "Celestial"
+        ],
+        "roles": {},
+        "characters": {}
+      }
+    ]
+  }
+}
