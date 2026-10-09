@@ -1,3 +1,5 @@
-# Only needed for the blurred background image and .ico icons.
-# The app still runs without it (plain background, text platform badges).
+# Both optional - the app runs without either, just with reduced features.
+# Pillow: .ico icon rendering (role/platform icons fall back to text badges without it).
 Pillow>=10.0
+# pygame: background music + button click sounds (silent without it).
+pygame-ce>=2.5

@@ -32,6 +32,10 @@ BASE_HEIGHT = 720
 SCALE = 1.0
 SANS = "Segoe UI"
 SEMIBOLD = "Segoe UI Semibold"
+DEFAULT_SANS = SANS
+DEFAULT_SEMIBOLD = SEMIBOLD
+CUSTOM_FONT = None     # set via set_custom_font() / "Font:" in tournament_info.txt
+DEFAULT_ACCENT = GOLD
 
 
 def S(value):
@@ -43,9 +47,37 @@ def S(value):
 
 def font(family, size_pt, *flags):
     """A Tk font tuple in negative (pixel) size, scaled by SCALE, so
-    Windows text-scaling settings don't compound with ours."""
+    Windows text-scaling settings don't compound with ours. When a custom
+    font is active it replaces both the body and "semibold" family - most
+    user fonts don't ship a dedicated semibold face, so a bold flag is
+    substituted automatically wherever the semibold face was asked for."""
     px = max(9, int(round(size_pt * 96 / 72 * SCALE)))
-    return (family, -px) + tuple(flags)
+    fam = family
+    if CUSTOM_FONT:
+        fam = CUSTOM_FONT
+        if family == DEFAULT_SEMIBOLD and "bold" not in flags:
+            flags = tuple(flags) + ("bold",)
+    return (fam, -px) + tuple(flags)
+
+
+def set_custom_font(name):
+    """Switch the app's font family (None/"" restores the default). Callers
+    should rebuild the current screen afterward so already-built widgets
+    pick up the new font."""
+    global CUSTOM_FONT, SANS, SEMIBOLD
+    CUSTOM_FONT = (name or "").strip() or None
+    SANS = CUSTOM_FONT or DEFAULT_SANS
+    SEMIBOLD = CUSTOM_FONT or DEFAULT_SEMIBOLD
+    _rebuild_fonts()
+
+
+def set_accent(hex_color):
+    """Replace the gold accent color app-wide. Callers should rebuild the
+    current screen (and re-run apply_ttk_style) afterward so already-built
+    widgets pick up the new color."""
+    global GOLD
+    if hex_color:
+        GOLD = hex_color
 
 
 def _rebuild_fonts():

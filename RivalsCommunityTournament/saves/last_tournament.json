@@ -1,19 +1,19 @@
 {
-  "status": "Seed",
-  "saved_at": "2026-10-04T16:24:07",
+  "status": "Bracket Setting",
+  "saved_at": "2026-10-09T10:48:19",
   "state": {
     "tournament_type": "mystery",
-    "bracket_type": "single",
+    "bracket_type": "double",
     "bracket_order": [
       "Quill",
-      "Fenwick",
-      "Ion",
-      "Doba_Fett",
       "Marrow",
+      "Ion",
+      "Fenwick",
       "Sable",
-      "Moss",
       "Juniper",
-      "Ember"
+      "Ember",
+      "Moss",
+      "Doba_Fett"
     ],
     "teams": [
       {
@@ -22,8 +22,8 @@
         "slots": [
           "Onyx",
           "Quorra",
-          "Jinx",
-          "Kestrel",
+          "Gale",
+          "Pixel",
           "Lumen"
         ],
         "slot_min_rank": [
@@ -40,18 +40,18 @@
         "captain": "Marrow",
         "name": "Marrow's Team",
         "slots": [
-          "Zephyr",
-          "Xerus",
-          "Ezra",
-          "Talon",
-          "Grubhub_9"
+          "Echo_9",
+          "Grit",
+          "Priya",
+          "Wraith",
+          "Mox"
         ],
         "slot_min_rank": [
-          "Gold",
-          "Gold",
-          "Gold",
-          "Gold",
-          "Silver"
+          "Celestial",
+          "Diamond",
+          "Diamond",
+          "Grand Master",
+          "Diamond"
         ],
         "roles": {},
         "characters": {}
@@ -60,18 +60,18 @@
         "captain": "Ion",
         "name": "Ion's Team",
         "slots": [
-          "Vex",
+          "Abel",
+          "Birch",
           "Yara",
           "Umbra",
-          "Wisp",
-          "Nyx"
+          "Rune"
         ],
         "slot_min_rank": [
+          "Diamond",
+          "Diamond",
           "Silver",
           "Silver",
-          "Silver",
-          "Platinum",
-          "Platinum"
+          "Silver"
         ],
         "roles": {},
         "characters": {}
@@ -80,18 +80,18 @@
         "captain": "Fenwick",
         "name": "Fenwick's Team",
         "slots": [
-          "Delta",
-          "Cinder",
-          "Rune",
-          "Halo_Kid",
-          "Frostbyte"
+          "Yuki_R",
+          "Kilo",
+          "Drift",
+          "Ozzy",
+          "Rael"
         ],
         "slot_min_rank": [
-          "Platinum",
-          "Silver",
-          "Silver",
-          "Silver",
-          "Silver"
+          "Diamond",
+          "Diamond",
+          "Eternity",
+          "Eternity",
+          "Celestial"
         ],
         "roles": {},
         "characters": {}
@@ -101,14 +101,14 @@
         "name": "Sable's Team",
         "slots": [
           "Six_Shooter",
-          "Hexx",
+          "Jinx",
+          "Static",
           "Cassius",
-          "Vane",
-          "Static"
+          "Wisp"
         ],
         "slot_min_rank": [
           "Platinum",
-          "Platinum",
+          "Celestial",
           "Platinum",
           "Platinum",
           "Platinum"
@@ -120,18 +120,18 @@
         "captain": "Juniper",
         "name": "Juniper's Team",
         "slots": [
-          "Kilo",
-          "Yuki_R",
-          "Birch",
-          "Abel",
-          "Mox"
+          "Delta",
+          "Xerus",
+          "Ezra",
+          "Talon",
+          "Cinder"
         ],
         "slot_min_rank": [
-          "Diamond",
-          "Diamond",
-          "Diamond",
-          "Diamond",
-          "Diamond"
+          "Platinum",
+          "Gold",
+          "Gold",
+          "Gold",
+          "Silver"
         ],
         "roles": {},
         "characters": {}
@@ -140,18 +140,18 @@
         "captain": "Ember",
         "name": "Ember's Team",
         "slots": [
-          "Priya",
-          "Grit",
-          "Wraith",
-          "Echo_9",
-          "Rael"
+          "Vex",
+          "Halo_Kid",
+          "Frostbyte",
+          "Ragna",
+          "Brynn"
         ],
         "slot_min_rank": [
-          "Diamond",
-          "Diamond",
-          "Grand Master",
-          "Celestial",
-          "Celestial"
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver"
         ],
         "roles": {},
         "characters": {}
@@ -160,17 +160,17 @@
         "captain": "Moss",
         "name": "Moss's Team",
         "slots": [
-          "Pixel",
-          "Drift",
-          "Gale",
-          "Ragna",
-          "Brynn"
+          "Solstice",
+          "Zephyr",
+          "Hexx",
+          "Nyx",
+          "Grubhub_9"
         ],
         "slot_min_rank": [
-          "Celestial",
-          "Eternity",
-          "Celestial",
           "Silver",
+          "Gold",
+          "Platinum",
+          "Platinum",
           "Silver"
         ],
         "roles": {},
@@ -180,18 +180,18 @@
         "captain": "Doba_Fett",
         "name": "Doba_Fett's Team",
         "slots": [
-          "Solstice",
           "Torque",
           "Halcyon",
           "Prism",
-          "Flux"
+          "Flux",
+          "Kestrel"
         ],
         "slot_min_rank": [
           "Silver",
-          "Silver",
           "Bronze",
           "Bronze",
-          "Bronze"
+          "Bronze",
+          "Celestial"
         ],
         "roles": {},
         "characters": {}

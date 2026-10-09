@@ -136,15 +136,15 @@ class BracketSettingsScreen(tk.Frame):
             row.pack(fill="x", pady=3)
 
             grip = tk.Label(row, text="\u2261", fg=theme.DIM, bg=theme.PANEL_2,
-                              font=("Segoe UI", 16), cursor="fleur", padx=8)
+                              font=theme.font(theme.SANS, 16), cursor="fleur", padx=8)
             grip.pack(side="left")
             num = tk.Label(row, fg=theme.GOLD, bg=theme.PANEL_2,
-                             font=("Segoe UI Semibold", 11), width=3, cursor="fleur")
+                             font=theme.font(theme.SEMIBOLD, 11), width=3, cursor="fleur")
             num.pack(side="left", padx=(0, 4), pady=8)
             info = tk.Frame(row, bg=theme.PANEL_2, cursor="fleur")
             info.pack(side="left", fill="x", expand=True, pady=8)
             name = tk.Label(info, fg=theme.TEXT, bg=theme.PANEL_2,
-                              font=("Segoe UI Semibold", 11), cursor="fleur")
+                              font=theme.font(theme.SEMIBOLD, 11), cursor="fleur")
             name.pack(anchor="w")
             cap = tk.Label(info, fg=theme.DIM, bg=theme.PANEL_2, font=theme.FONT_SMALL, cursor="fleur")
             cap.pack(anchor="w")

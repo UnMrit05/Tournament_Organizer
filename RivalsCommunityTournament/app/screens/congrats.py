@@ -3,12 +3,15 @@
 Shown once the bracket has a champion. Displays the winning team's
 name and captain plus a short roster/Mystery-Hero summary, with
 Back (return to the Bracket screen) and End (close the app) buttons.
+
+v0.30: the header pops in on open, the same way Greeting's title does.
 """
 
 import tkinter as tk
 
 from app.ui import theme
 from app.ui.player_icons import name_with_platform, role_icons
+from app.ui.pop_anim import pop_in
 
 
 class CongratsScreen(tk.Frame):
@@ -24,8 +27,9 @@ class CongratsScreen(tk.Frame):
 
         tk.Label(wrap, text="\U0001F3C6", fg=theme.GOLD, bg=theme.BG,
                   font=theme.font(theme.SANS, 46)).pack(pady=(0, 6))
-        tk.Label(wrap, text="Congratulations!", fg=theme.TEXT, bg=theme.BG,
-                  font=theme.FONT_DISPLAY).pack()
+        header_lbl = tk.Label(wrap, text="Congratulations!", fg=theme.TEXT, bg=theme.BG)
+        header_lbl.pack()
+        pop_in(header_lbl, theme.SEMIBOLD, 26)
 
         if champion is None:
             tk.Label(wrap, text="The tournament hasn't crowned a champion yet.",

@@ -13,7 +13,7 @@ from app.data.players import load_players
 from app.data.ranks import rank_sort_key
 from app.data.roster import load_roster
 from app.data.team import Team
-from app.ui import theme
+from app.ui import audio, theme
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 ASSETS_DIR = BASE_DIR / "assets"
@@ -24,7 +24,13 @@ PLAYERS_CSV = DATA_DIR / "players.csv"
 ROSTER_JSON = DATA_DIR / "characters.json"
 INFO_TXT = ASSETS_DIR / "tournament_info.txt"
 
-APP_VERSION = "0.27"
+APP_VERSION = "0.30"
+LICENSE_NAME = "MIT License"
+
+_MUTE_ICON = "\U0001F507"      # muted speaker
+_UNMUTE_ICON = "\U0001F50A"    # speaker, high volume
+_FULLSCREEN_ICON = "⛶"
+_EXIT_FULLSCREEN_ICON = "✕"
 
 
 class TournamentApp(tk.Tk):
@@ -33,8 +39,11 @@ class TournamentApp(tk.Tk):
         self.title(f"Rivals Community Tournament v{APP_VERSION}")
         self.configure(bg=theme.BG)
 
-        scale_override = self._read_scale_override()
+        scale_override = self._read_info_override("scale")
         theme.init_scale(self, scale_override)
+        font_override = self._read_info_override("font", as_float=False)
+        if font_override:
+            theme.set_custom_font(font_override)
         theme.apply_ttk_style(self)
 
         self.geometry(f"{theme.S(1100)}x{theme.S(720)}")
@@ -56,47 +65,103 @@ class TournamentApp(tk.Tk):
         self._container = tk.Frame(self, bg=theme.BG)
         self._container.pack(fill="both", expand=True)
         self._current_screen = None
+        self._current_screen_name = None
 
-        self._build_fullscreen_control()
+        self._build_toolbar()
+        self._build_watermark()
+
+        # One click sound for every tk.Button in the app, without touching
+        # individual button code: bind_class adds to ALL widgets of that
+        # class. add="+" keeps each button's own command intact.
+        self.bind_class("Button", "<Button-1>", audio.play_click, add="+")
 
         self._load_data()
         self.show_screen("greeting")
 
-    def _read_scale_override(self):
-        if INFO_TXT.exists():
-            for line in INFO_TXT.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if line.lower().startswith("scale:"):
-                    try:
-                        return float(line.split(":", 1)[1].strip())
-                    except ValueError:
-                        pass
+    def _read_info_override(self, key, as_float=True):
+        if not INFO_TXT.exists():
+            return None
+        prefix = f"{key}:".lower()
+        for line in INFO_TXT.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.lower().startswith(prefix):
+                value = line.split(":", 1)[1].strip()
+                if not as_float:
+                    return value or None
+                try:
+                    return float(value)
+                except ValueError:
+                    return None
         return None
 
-    def _build_fullscreen_control(self):
-        """A persistent top-right button (outside any screen, so it
-        survives navigation) toggling true fullscreen. Escape exits it."""
+    # ---------- top-right toolbar: Mute, Vol+, Vol-, Fullscreen ----------
+
+    def _build_toolbar(self):
+        """A persistent toolbar (outside any screen, so it survives
+        navigation), left to right: Mute/Unmute, Volume Up, Volume Down,
+        Fullscreen/Cross. Every button shares the same size so nothing in
+        the row overlaps or hangs off-size next to the others."""
         self._fullscreen = False
         self.bind("<Escape>", self._exit_fullscreen)
-        self._fs_btn = tk.Button(self, text="\u26F6", command=self._toggle_fullscreen,
-                                   bg=theme.PANEL_2, fg=theme.TEXT, activebackground=theme.LINE,
-                                   relief="flat", bd=0, cursor="hand2",
-                                   font=theme.font(theme.SANS, 12),
-                                   padx=theme.S(8), pady=theme.S(4))
-        self._fs_btn.place(relx=1.0, x=-theme.S(14), y=theme.S(10), anchor="ne")
+
+        btn_kwargs = dict(bg=theme.PANEL_2, fg=theme.TEXT, activebackground=theme.LINE,
+                           relief="flat", bd=0, cursor="hand2", width=2,
+                           font=theme.font(theme.SANS, 12),
+                           padx=theme.S(6), pady=theme.S(4))
+
+        toolbar = tk.Frame(self, bg=theme.BG)
+        toolbar.place(relx=1.0, x=-theme.S(14), y=theme.S(10), anchor="ne")
+
+        self._mute_btn = tk.Button(toolbar, text=_UNMUTE_ICON, command=self._toggle_mute, **btn_kwargs)
+        self._mute_btn.pack(side="left", padx=(0, theme.S(4)))
+        tk.Button(toolbar, text="+", command=lambda: self._nudge_volume(0.1), **btn_kwargs).pack(
+            side="left", padx=(0, theme.S(4)))
+        tk.Button(toolbar, text="−", command=lambda: self._nudge_volume(-0.1), **btn_kwargs).pack(
+            side="left", padx=(0, theme.S(4)))
+        self._fs_btn = tk.Button(toolbar, text=_FULLSCREEN_ICON, command=self._toggle_fullscreen, **btn_kwargs)
+        self._fs_btn.pack(side="left")
+
+        self._toolbar = toolbar
+
+    def _toggle_mute(self):
+        muted = audio.toggle_mute()
+        self._mute_btn.configure(text=_MUTE_ICON if muted else _UNMUTE_ICON)
+
+    def _nudge_volume(self, delta):
+        audio.change_volume(delta)
+        if audio.is_muted() and delta > 0:
+            audio.set_muted(False)
+            self._mute_btn.configure(text=_UNMUTE_ICON)
 
     def _toggle_fullscreen(self):
         self._fullscreen = not self._fullscreen
         self.attributes("-fullscreen", self._fullscreen)
-        self._fs_btn.configure(text="\u2715" if self._fullscreen else "\u26F6")
-        self._fs_btn.lift()
+        self._fs_btn.configure(text=_EXIT_FULLSCREEN_ICON if self._fullscreen else _FULLSCREEN_ICON)
+        self._toolbar.lift()
 
     def _exit_fullscreen(self, event=None):
         if self._fullscreen:
             self._fullscreen = False
             self.attributes("-fullscreen", False)
-            self._fs_btn.configure(text="\u26F6")
-            self._fs_btn.lift()
+            self._fs_btn.configure(text=_FULLSCREEN_ICON)
+            self._toolbar.lift()
+
+    def _build_watermark(self):
+        self._watermark = tk.Label(self, text="Made by Mrit", fg=theme.DIM, bg=theme.BG,
+                                     font=theme.font(theme.SANS, 8))
+        self._watermark.place(relx=1.0, rely=1.0, x=-theme.S(8), y=-theme.S(6), anchor="se")
+
+    # ---------- accent color (theme picker on Greeting) ----------
+
+    def set_accent(self, hex_color):
+        """Replace the accent color everywhere and rebuild the current
+        screen so its widgets pick the new color up immediately."""
+        theme.set_accent(hex_color)
+        theme.apply_ttk_style(self)
+        if self._current_screen_name:
+            self.show_screen(self._current_screen_name)
+
+    # ---------- data / state ----------
 
     def _load_data(self):
         if PLAYERS_CSV.exists():
@@ -144,4 +209,7 @@ class TournamentApp(tk.Tk):
             self._current_screen.destroy()
         self._current_screen = screens[name](self._container, self)
         self._current_screen.pack(fill="both", expand=True)
-        self._fs_btn.lift()
+        self._current_screen_name = name
+        self._toolbar.lift()
+        self._watermark.lift()
+        audio.play_music_for_screen(name)

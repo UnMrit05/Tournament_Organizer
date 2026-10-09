@@ -33,22 +33,29 @@ def _load_photo(path: Path, size: int):
     return photo
 
 
-def platform_badge(parent, platform: str, bg: str, size: int = 16):
+def platform_badge(parent, platform: str, bg: str, size: int = 18):
     """A Label showing the platform icon (or text fallback); None if the
-    player has no platform set."""
+    player has no platform set. `size` is a base pixel value scaled by
+    theme.S() like everything else, so it grows with resolution too.
+    Packed alone with side="left" and no fill/expand, so tkinter already
+    centers it on the cross-axis against whatever it sits beside (e.g. the
+    taller name label) - that's what keeps it vertically centered."""
     if not platform:
         return None
-    photo = _load_photo(ICONS_DIR / ICON_FILENAMES[platform], size)
+    px = theme.S(size)
+    photo = _load_photo(ICONS_DIR / ICON_FILENAMES[platform], px)
     if photo is not None:
         return tk.Label(parent, image=photo, bg=bg, bd=0)
     return tk.Label(parent, text=FALLBACK_TEXT[platform], bg=bg, bd=0,
                      fg=theme.PLATFORM_COLOR.get(platform, theme.DIM),
-                     font=theme.font(theme.SEMIBOLD, 7))
+                     font=theme.font(theme.SEMIBOLD, 8))
 
 
-def name_with_platform(parent, player, bg: str, name_font=None, platform_size: int = 14):
+def name_with_platform(parent, player, bg: str, name_font=None, platform_size: int = 18):
     """A Frame with the player's name, then their platform badge right
-    next to it (used on the roster list, slots, etc.)."""
+    next to it (used on the roster list, slots, etc.) - both packed
+    side="left" in the same row, which keeps the badge vertically centered
+    against the name text."""
     row = tk.Frame(parent, bg=bg)
     tk.Label(row, text=player.ign, bg=bg, fg=theme.TEXT,
               font=name_font or theme.FONT_NAME).pack(side="left")

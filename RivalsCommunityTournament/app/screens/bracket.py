@@ -3,33 +3,36 @@
 Single/double elimination (and a league's playoff stage) render as a
 zoomable, scrollable canvas tree. Only a team's actual starting
 position is shown up front; a later round's box only appears once a
-team has actually arrived there (v0.26 item 5) - this also means the
-per-column round label ("Round 1", "Quarterfinal", ...) and each
-bracket section's own title ("Winners Bracket", "Losers Bracket") are
-drawn in two clearly separate rows so they never overlap (item 6).
+team has actually arrived there - this also means the per-column round
+label ("Round 1", "Quarterfinal", ...) and each bracket section's own
+title ("Winners Bracket", "Losers Bracket") are drawn in two clearly
+separate rows so they never overlap.
 
-Click a team in an undecided match to mark them the winner, which
-propagates automatically (winner into the next round, and for double
-elimination the loser into the losers bracket) via app.data.bracket.
-Click an already-decided match's winner to undo that result and
-everything that depended on it (item 8) - not available for an
-auto-resolved bye, since there is nothing to undo.
+v0.30: a single click on a team's name shows a small popup with the
+team's captain; a double click marks them the winner, or undoes that
+match's result if they're already the winner (not available for an
+auto-resolved bye, since there is nothing to undo). Zoom is continuous
+with a Fit button, and the bracket auto-fits to the window once when
+the screen first opens so it fills the screen by default.
 
 A league's round-robin stage renders as a plain match list + live
 standings until every match is decided, at which point "Generate
 Playoffs" builds the playoff bracket. The match list's rows are built
 once and only updated in place afterwards, so marking a winner never
-rebuilds the list or resets its scroll position (item 7).
+rebuilds the list or resets its scroll position.
 """
 
 import tkinter as tk
 
 from app.data import bracket as B
 from app.ui import theme
+from app.ui.popup import show_captain_popup
 from app.ui.scrollable import ScrollableFrame
 
-ZOOM_LEVELS = [0.75, 1.0, 1.25, 1.5]
-DEFAULT_ZOOM_INDEX = 1
+ZOOM_MIN = 0.35
+ZOOM_MAX = 2.5
+ZOOM_STEP = 0.1
+DEFAULT_ZOOM = 1.0
 BASE_BOX_W = 170
 BASE_BOX_H = 56
 BASE_COL_GAP = 90
@@ -44,7 +47,10 @@ class BracketScreen(tk.Frame):
         super().__init__(parent, bg=theme.BG)
         self.app = app
         self.data = app.bracket
-        self.zoom_index = DEFAULT_ZOOM_INDEX
+        self.zoom = DEFAULT_ZOOM
+        self._content_w = 0
+        self._content_h = 0
+        self._auto_fitted = False
 
         self._rr_built = False
         self._rr_row_refs = {}
@@ -67,9 +73,11 @@ class BracketScreen(tk.Frame):
                   font=theme.FONT_HEADING).pack(side="left")
         zoom_row = tk.Frame(header, bg=theme.BG)
         zoom_row.pack(side="right")
-        tk.Button(zoom_row, text="−", command=lambda: self._zoom(-1),
+        tk.Button(zoom_row, text="−", command=lambda: self._zoom_by(-ZOOM_STEP),
                    **theme.button_kwargs()).pack(side="left", padx=3)
-        tk.Button(zoom_row, text="+", command=lambda: self._zoom(1),
+        tk.Button(zoom_row, text="+", command=lambda: self._zoom_by(ZOOM_STEP),
+                   **theme.button_kwargs()).pack(side="left", padx=3)
+        tk.Button(zoom_row, text="Fit", command=self._zoom_fit,
                    **theme.button_kwargs()).pack(side="left", padx=3)
 
         self.status_lbl = tk.Label(self, fg=theme.DIM, bg=theme.BG, font=theme.FONT_SMALL)
@@ -90,6 +98,7 @@ class BracketScreen(tk.Frame):
         self.rr_wrap = tk.Frame(self, bg=theme.BG)
 
         self._refresh()
+        self.after(200, self._auto_fit_once)
 
     # ---------- top-level refresh ----------
 
@@ -116,7 +125,8 @@ class BracketScreen(tk.Frame):
                               if m.bracket == "RR" and m.winner is None)
             self.status_lbl.configure(text=f"Round robin: {remaining} match(es) remaining")
         else:
-            self.status_lbl.configure(text="Click a team to mark them the winner. Click a winner to undo.")
+            self.status_lbl.configure(
+                text="Click a team for details. Double-click to mark them the winner or undo it.")
 
     def _record(self, match, team):
         B.record_winner(match, team, self.data.matches)
@@ -128,16 +138,46 @@ class BracketScreen(tk.Frame):
         B.refresh_champion(self.data)
         self._refresh()
 
+    def _toggle_match(self, match, team, is_winner):
+        if is_winner:
+            self._undo(match)
+        else:
+            self._record(match, team)
+
+    def _show_popup(self, event, team):
+        show_captain_popup(self, event, team)
+
     def _on_end(self):
         if B.is_tournament_complete(self.data):
             self.app.show_screen("congrats")
 
-    def _zoom(self, delta):
-        new_index = self.zoom_index + delta
-        if 0 <= new_index < len(ZOOM_LEVELS):
-            self.zoom_index = new_index
-            if self.data.format != "league" or self.data.playoff_started:
-                self._render_canvas()
+    # ---------- zoom ----------
+
+    def _zoom_by(self, delta):
+        self.zoom = max(ZOOM_MIN, min(ZOOM_MAX, self.zoom + delta))
+        if self.data.format != "league" or self.data.playoff_started:
+            self._render_canvas()
+
+    def _zoom_fit(self):
+        """Pick a zoom factor that makes the last-rendered content fill the
+        visible canvas area, then redraw at that factor."""
+        if self.data.format == "league" and not self.data.playoff_started:
+            return
+        self.canvas.update_idletasks()
+        cw, ch = self.canvas.winfo_width(), self.canvas.winfo_height()
+        if cw <= 1 or ch <= 1 or self._content_w <= 0 or self._content_h <= 0:
+            return
+        factor = min(cw / self._content_w, ch / self._content_h)
+        self.zoom = max(ZOOM_MIN, min(ZOOM_MAX, self.zoom * factor * 0.96))
+        self._render_canvas()
+
+    def _auto_fit_once(self):
+        """Fill the screen with the bracket by default when the screen
+        first opens, without fighting the user's own zoom/scroll afterward."""
+        if self._auto_fitted:
+            return
+        self._auto_fitted = True
+        self._zoom_fit()
 
     # ---------- league: round robin (built once) + standings (rebuilt; no scrollbar there) ----------
 
@@ -165,20 +205,14 @@ class BracketScreen(tk.Frame):
             row = tk.Frame(self.match_scroll.body, bg=theme.PANEL_2, highlightbackground=theme.LINE,
                              highlightthickness=1)
             row.pack(fill="x", pady=4)
-            lbl_a = tk.Label(row, bg=theme.PANEL_2, anchor="w", font=("Segoe UI Semibold", 11))
+            lbl_a = tk.Label(row, bg=theme.PANEL_2, anchor="w", font=theme.font(theme.SEMIBOLD, 11))
             lbl_a.pack(fill="x", padx=14, pady=(8, 2))
-            lbl_b = tk.Label(row, bg=theme.PANEL_2, anchor="w", font=("Segoe UI Semibold", 11))
+            lbl_b = tk.Label(row, bg=theme.PANEL_2, anchor="w", font=theme.font(theme.SEMIBOLD, 11))
             lbl_b.pack(fill="x", padx=14, pady=(2, 8))
             self._rr_row_refs[m.id] = {"match": m, "row": row, "a": lbl_a, "b": lbl_b}
 
         self.standings_frame = tk.Frame(body, bg=theme.BG)
         self.standings_frame.grid(row=0, column=1, sticky="nsew", padx=(12, 0))
-
-    def _rr_label_click(self, match, team, is_winner):
-        if match.winner is None:
-            self._record(match, team)
-        elif is_winner:
-            self._undo(match)
 
     def _update_rr(self):
         """Refresh every round-robin row's text/color/binding in place and
@@ -191,14 +225,16 @@ class BracketScreen(tk.Frame):
                 is_winner = m.winner is team
                 is_loser = m.winner is not None and not is_winner
                 fg = theme.GOLD if is_winner else theme.TEXT
-                font = ("Segoe UI Semibold", 11, "overstrike") if is_loser else ("Segoe UI Semibold", 11)
-                clickable = m.winner is None or is_winner
-                lbl.configure(text=team.name, fg=fg, font=font,
-                               cursor="hand2" if clickable else "arrow")
+                flags = ("overstrike",) if is_loser else ()
+                toggleable = m.winner is None or is_winner
+                lbl.configure(text=team.name, fg=fg, font=theme.font(theme.SEMIBOLD, 11, *flags),
+                               cursor="hand2")
                 lbl.unbind("<Button-1>")
-                if clickable:
-                    lbl.bind("<Button-1>",
-                              lambda e, mm=m, t=team, w=is_winner: self._rr_label_click(mm, t, w))
+                lbl.unbind("<Double-Button-1>")
+                lbl.bind("<Button-1>", lambda e, t=team: self._show_popup(e, t))
+                if toggleable:
+                    lbl.bind("<Double-Button-1>",
+                              lambda e, mm=m, t=team, w=is_winner: self._toggle_match(mm, t, w))
 
         for w in self.standings_frame.winfo_children():
             w.destroy()
@@ -237,7 +273,7 @@ class BracketScreen(tk.Frame):
     def _revealed(m):
         """Only a match a team has actually reached (or already decided)
         is drawn - later rounds appear as results come in, instead of a
-        full tree of empty TBD boxes (item 5)."""
+        full tree of empty TBD boxes."""
         return m.team_a is not None or m.team_b is not None or m.winner is not None
 
     def _compute_y(self, rounds, box_h, row_gap):
@@ -255,7 +291,7 @@ class BracketScreen(tk.Frame):
 
     def _render_canvas(self):
         self.canvas.delete("all")
-        z = ZOOM_LEVELS[self.zoom_index]
+        z = self.zoom
         box_w, box_h = BASE_BOX_W * z, BASE_BOX_H * z
         col_gap, row_gap = BASE_COL_GAP * z, BASE_ROW_GAP * z
         section_gap = SECTION_GAP * z
@@ -263,8 +299,8 @@ class BracketScreen(tk.Frame):
         round_label_h = ROUND_LABEL_H * z
         font_name = max(8, int(11 * z))
         font_rank = max(7, int(9 * z))
-        section_font = ("Segoe UI Semibold", max(9, int(10 * z)))
-        round_font = ("Segoe UI", max(8, int(9 * z)))
+        section_font = theme.font(theme.SEMIBOLD, max(9, int(10 * z)))
+        round_font = theme.font(theme.SANS, max(8, int(9 * z)))
 
         max_x, max_y = 0, 0
 
@@ -345,7 +381,8 @@ class BracketScreen(tk.Frame):
                 self._draw_connector(fx + box_w, fy + box_h / 2, x, top + box_h / 2, col_gap)
             max_x, max_y = max(max_x, x + box_w), max(max_y, top + box_h)
 
-        self.canvas.configure(scrollregion=(0, 0, max_x + 40, max_y + 40))
+        self._content_w, self._content_h = max_x + 40, max_y + 40
+        self.canvas.configure(scrollregion=(0, 0, self._content_w, self._content_h))
 
     def _draw_match_box(self, m, x, top, box_w, box_h, font_name, font_rank):
         self.canvas.create_rectangle(x, top, x + box_w, top + box_h,
@@ -358,28 +395,26 @@ class BracketScreen(tk.Frame):
             if team is None:
                 text, fg = ("BYE" if (m.team_a is None) != (m.team_b is None) else "TBD"), theme.DIM
                 self.canvas.create_text(x + 10, ty, anchor="w", text=text, fill=fg,
-                                          font=("Segoe UI", font_name), width=box_w - 16)
+                                          font=theme.font(theme.SANS, font_name), width=box_w - 16)
                 continue
 
             is_winner = m.winner is team
             is_loser = m.winner is not None and not is_winner
             fg = theme.GOLD if is_winner else (theme.DIM if is_loser else theme.TEXT)
             item = self.canvas.create_text(x + 10, ty, anchor="w", text=team.name, fill=fg,
-                                              font=("Segoe UI Semibold", font_name), width=box_w - 16)
-            clickable = False
-            if m.winner is None and m.team_a is not None and m.team_b is not None:
-                self.canvas.tag_bind(item, "<Button-1>", lambda e, mm=m, t=team: self._record(mm, t))
-                clickable = True
-            elif is_winner and not m.auto:
-                self.canvas.tag_bind(item, "<Button-1>", lambda e, mm=m: self._undo(mm))
-                clickable = True
-            if clickable:
-                self.canvas.tag_bind(item, "<Enter>", lambda e: self.canvas.configure(cursor="hand2"))
-                self.canvas.tag_bind(item, "<Leave>", lambda e: self.canvas.configure(cursor="arrow"))
+                                              font=theme.font(theme.SEMIBOLD, font_name), width=box_w - 16)
+            self.canvas.tag_bind(item, "<Button-1>", lambda e, t=team: self._show_popup(e, t))
+            toggleable = ((m.winner is None and m.team_a is not None and m.team_b is not None)
+                          or (is_winner and not m.auto))
+            if toggleable:
+                self.canvas.tag_bind(item, "<Double-Button-1>",
+                                       lambda e, mm=m, t=team, w=is_winner: self._toggle_match(mm, t, w))
+            self.canvas.tag_bind(item, "<Enter>", lambda e: self.canvas.configure(cursor="hand2"))
+            self.canvas.tag_bind(item, "<Leave>", lambda e: self.canvas.configure(cursor="arrow"))
 
         if m.auto:
             self.canvas.create_text(x + box_w - 6, top + 4, anchor="ne", text="bye",
-                                      fill=theme.DIM, font=("Segoe UI", font_rank))
+                                      fill=theme.DIM, font=theme.font(theme.SANS, font_rank))
 
     def _draw_connector(self, x0, y0, x1, y1, col_gap):
         mid = x0 + col_gap / 2

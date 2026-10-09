@@ -1,5 +1,55 @@
 # Changelog
 
+## v0.30
+**Customization**
+- `assets/tournament_info.txt` now also accepts an optional `Font:` line to use a custom font
+  family (must be installed on the machine running the app) in place of the default Segoe UI-based
+  faces everywhere in the app — leave it commented out for the default look.
+- New Theme button (top-left of the Greeting screen) opens an RGB picker that replaces the app's
+  accent color (previously a fixed gold) everywhere — buttons, highlights, captain labels, etc. —
+  with a live preview swatch before you apply it.
+
+**Platform icons**
+- Platform icons (PlayStation/Xbox/PC) are bigger across the app and now scale with screen
+  resolution like everything else (previously they stayed a fixed pixel size regardless of your
+  monitor).
+
+**Drafting**
+- Editing a team's name now reliably sticks: it's committed the moment you hit Save or Lock Seed,
+  and every later screen (Mystery Hero, Bracket Settings, Bracket, Congratulations) uses the name
+  you typed.
+
+**Mystery Hero**
+- New two-pane layout: already-finished teams are listed on the left, teams still waiting their
+  turn on the right, each showing per-player assigned roles/characters (or preferred roles if not
+  yet spun) and the captain's name — so you can see tournament-wide progress without leaving the
+  spin screen.
+
+**Bracket**
+- Zoom is now continuous (drag anywhere between min/max instead of a few fixed steps), plus a new
+  Fit button, and the view automatically zooms to fit the whole bracket on screen the moment it
+  opens.
+- Single-click a team's name to see a quick popup with their captain's name; double-click to record
+  them as the winner, and double-click again to undo it (an auto-resolved bye still can't be
+  undone). This replaces the old single-click-decides behavior.
+
+**Audio**
+- Background music: drop an audio file named after a screen (e.g. `greeting.ogg`) into
+  `assets/audio/music/` and it loops automatically while that screen is open — see the README
+  there for the full list of screen names and supported formats (.ogg/.mp3/.wav).
+- Button clicks now play a sound if you provide one at `assets/audio/sfx/click.*`.
+- New toolbar in the top-right (next to Fullscreen): Mute/Unmute and Volume Up/Down controls,
+  uniformly sized and laid out so nothing overlaps.
+- Requires the optional `pygame` package (see `requirements.txt`); with no audio files, no pygame,
+  or no sound card, the app runs exactly as before — totally silent, no errors.
+
+**Polish**
+- The "Congratulations!" header and the Greeting screen's title now pop in with a little bounce
+  when their screen opens, instead of appearing instantly.
+- A small "Made by Mrit" watermark now sits in the bottom-right corner of every screen.
+- The Greeting screen now states the app's license and version number at the bottom
+  ("Open-source software (MIT License) — v0.30").
+
 ## v0.27
 **Simplification pass**
 - Removed the background-image/blur/"glass" system entirely (`app/ui/background.py`,

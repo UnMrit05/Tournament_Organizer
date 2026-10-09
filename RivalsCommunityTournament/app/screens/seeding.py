@@ -40,6 +40,7 @@ class SeedingScreen(tk.Frame):
         self._lock_confirmed = False
         self._slot_refs = {}          # (ti, si) -> widget refs
         self._roster_refs = []        # one entry per pool row
+        self._name_vars = []          # (team, StringVar) - committed explicitly on Save/Lock Seed
 
         header = tk.Frame(self, bg=theme.BG)
         header.pack(fill="x", padx=20, pady=(16, 6))
@@ -99,10 +100,11 @@ class SeedingScreen(tk.Frame):
             name_var = tk.StringVar(value=team.name)
             entry = tk.Entry(hd, textvariable=name_var, bg=theme.PANEL_2, fg=theme.TEXT,
                                insertbackground=theme.TEXT, relief="flat",
-                               font=("Segoe UI Semibold", 11), justify="right")
+                               font=theme.font(theme.SEMIBOLD, 11), justify="right")
             entry.pack(side="right", padx=10, pady=8, fill="x", expand=True)
             entry.bind("<FocusOut>", lambda e, t=team, v=name_var: self._rename(t, v))
             entry.bind("<Return>", lambda e, t=team, v=name_var: self._rename(t, v))
+            self._name_vars.append((team, name_var))
 
             slots_frame = tk.Frame(box, bg=theme.PANEL)
             slots_frame.pack(fill="x", padx=10, pady=8)
@@ -173,7 +175,7 @@ class SeedingScreen(tk.Frame):
 
         if player:
             from app.ui.player_icons import platform_badge
-            badge = platform_badge(ref["platform_frame"], player.platform, row_bg, size=13)
+            badge = platform_badge(ref["platform_frame"], player.platform, row_bg, size=16)
             if badge is not None:
                 badge.pack(side="left", padx=(4, 0))
             role_icons(ref["icons_frame"], player, row_bg)
@@ -188,6 +190,14 @@ class SeedingScreen(tk.Frame):
         new_name = var.get().strip()
         if new_name:
             team.name = new_name
+
+    def _commit_names(self):
+        """Explicitly push every team-name field's current text onto its
+        Team before Save/Lock Seed act, rather than relying only on the
+        field losing focus first - so a rename is never lost no matter how
+        the button was reached."""
+        for team, var in self._name_vars:
+            self._rename(team, var)
 
     # ---------- interaction handlers ----------
 
@@ -299,6 +309,7 @@ class SeedingScreen(tk.Frame):
     # ---------- footer actions ----------
 
     def _on_lock(self):
+        self._commit_names()
         incomplete = [t for t in self.app.teams if not t.is_full()]
         if incomplete and not self._lock_confirmed:
             names = ", ".join(t.name for t in incomplete)
@@ -321,5 +332,6 @@ class SeedingScreen(tk.Frame):
         self._rebuild_roster()
 
     def _on_save(self):
+        self._commit_names()
         save_state(serialize_app_state(self.app), status="Seed")
         self.warn_label.configure(text="Draft saved. Use Continue on the start screen to resume.")

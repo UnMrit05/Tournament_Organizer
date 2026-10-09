@@ -1,2 +1,8 @@
-Title: Test Rivals Showdown
-Host: Mrit
+Title: Saturday Rivals Showdown
+Host: Nova
+
+# Optional: uncomment to override the automatic UI scale (e.g. on an
+# unusual monitor) or to use a custom font family installed on this
+# computer. Leave both commented out to use the defaults.
+# Scale: 1.5
+# Font: Georgia
