@@ -1,4 +1,4 @@
-# Hero_Shooter_Tournmanet_Organizer
+# Hero_Shooter_Tournament_Organizer
 A Python based app to organize community (or otherwise) tournaments for Legally-Distinct-Hero-Shooter. The Drafting/ Bracket feature can be used for any team based game with similar roles.
 
 **Intellectual Property Disclaimer:**
