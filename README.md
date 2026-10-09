@@ -9,7 +9,7 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 3. Install custom fonts by double clicking the .otf file(s) (Tournament\assets\fonts).
 4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\tournament_info.txt).
 5. Update players.csv (Tournament\data\players.csv) so it has the latest players details.
-6. Update character roster to include latest released characters (Tournament\data\characters.json)
+6. Update character roster to include latest released characters (Tournament\data\characters.json).
 
 **Usage:** 
 1. Download the Tournament.zip
@@ -17,11 +17,11 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 3. Open the folder and click run.bat
 
 **Dependencies:**
-The app in version 0.30 currently has two libary dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
+The app in version 0.30 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
 1. pillow (for handling images and icons)
 2. pygame-ce (for handling music and interaction sounds)
 
-**Notes: **
+**Notes:**
 1. Never delete the save file (Tournament\saves\last_tournament.json). There is no recovery option for draft/ player role selection without it.
 
 **AI Usage Declaration:**
