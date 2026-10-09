@@ -1,21 +1,32 @@
-# Rivals_Tournmanet_Organizer
-A small python based app which is used for organizing community (or otherwise) tournaments for Marvel Rivals. The Drafting/ Bracket feature can be used for any team based game with similar roles as well.
+# Hero_Shooter_Tournmanet_Organizer
+A Python based app to organize community (or otherwise) tournaments for Legally-Distinct-Hero-Shooter. The Drafting/ Bracket feature can be used for any team based game with similar roles.
 
-Pre-requisites:
-1. Download and install Python 3.4 (or above) installed and added to PATH
-2. Verify assets like in assets folder like icons and images
-3. Install custom fonts if you want them to appear in app and control them through tournament_info.txt config file
-4. Adjust the Tournament name and Organizer name in the tournament_info.txt file
-5. Make sure that players.csv is the updated file containing your players latest details
-6. Make sure the character roster for the game is updated in characters.json
+**Intellectual Property Disclaimer:**
+All product names, logos, brands, trademarks, and registered trademarks are property of their respective owners. All company, product, and service names used in this project are for identification purposes only. Use of these names, trademarks, and brands does not imply endorsement or ownership, in whole or in part.
 
-Usage: 
-1. Download the files
+**Pre-requisites:**
+1. Download and install Python 3.4 (or above). Make sure the tick box for 'add to PATH' is seleted when installing. Follow a guide to add to PATH in case Python is already installed but not added to environment variables yet. This setup is fundamental and mandatory.
+3. Install custom fonts byt double clicking the .otf file(s) (Tournament\assets\fonts).
+4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\tournament_info.txt).
+5. Update players.csv (Tournament\data\players.csv) so it has the latest players details.
+6. Update character roster to include latest released characters (Tournament\data\characters.json)
+
+**Usage:** 
+1. Download the Tournament.zip
 2. Extract the files
 3. Open the folder and click run.bat
 
-Notes: 
-1. Make sure to not accidentally delete the save file under saves/last_tournament.json is never deleted, there is no recovery option for draft/ player role selection without it
+**Dependencies:**
+The app in version 0.30 currently has two libary dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
+1. pillow (for handling images and icons)
+2. pygame-ce (for handling music and interaction sounds)
 
-AI Usage Declaration:
-Generative AI tools have been used in development of this app. (Mostly in creating UI elements, debugging and testing)
+**Notes: **
+1. Never delete the save file (Tournament\saves\last_tournament.json). There is no recovery option for draft/ player role selection without it.
+
+**AI Usage Declaration:**
+Generative AI tools have been used in development of this app (mostly in creating UI elements, debugging and testing).
+
+**Licences/ Copyright:**
+1. All fonts used are under the ITF Free Font License (FFL) from [fontshare](https://fontshare.com/licenses/itf-ffl). Individual license information can be found in the license folder (Tournament\assets\fonts\license).
+2. All music used in this project is sourced under open-access from [Pixabay](https://pixabay.com/service/terms/). Individual license information can be found in the license folder (Tournmanet\assets\audio\license).
