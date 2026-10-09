@@ -25,7 +25,7 @@ The app in version 0.30 currently has two library dependencies. All dependies ar
 1. Never delete the save file (Tournament\saves\last_tournament.json). There is no recovery option for draft/ player role selection without it.
 
 **AI Usage Declaration:**
-Generative AI tools have been used in development of this app (mostly in creating UI elements, debugging and testing).
+Generative AI tools have been used in development of this app (mostly in procedurally creating UI elements, debugging and testing).
 
 **Licences/ Copyright:**
 1. All fonts used are under the ITF Free Font License (FFL) from [fontshare](https://fontshare.com/licenses/itf-ffl). Individual license information can be found in the license folder (Tournament\assets\fonts\license).
