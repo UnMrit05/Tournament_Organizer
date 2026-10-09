@@ -6,7 +6,7 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 
 **Pre-requisites:**
 1. Download and install Python 3.4 (or above). Make sure the tick box for 'add to PATH' is seleted when installing. Follow a guide to add to PATH in case Python is already installed but not added to environment variables yet. This setup is fundamental and mandatory.
-3. Install custom fonts byt double clicking the .otf file(s) (Tournament\assets\fonts).
+3. Install custom fonts by double clicking the .otf file(s) (Tournament\assets\fonts).
 4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\tournament_info.txt).
 5. Update players.csv (Tournament\data\players.csv) so it has the latest players details.
 6. Update character roster to include latest released characters (Tournament\data\characters.json)
