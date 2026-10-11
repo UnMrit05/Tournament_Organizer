@@ -17,7 +17,7 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 3. Open the folder and click run.bat
 
 **Dependencies:**
-The app in version 0.30 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
+The app in version 0.32 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
 1. pillow (for handling images and icons)
 2. pygame-ce (for handling music and interaction sounds)
 
@@ -25,8 +25,9 @@ The app in version 0.30 currently has two library dependencies. All dependies ar
 1. Never delete the save file (Tournament\saves\last_tournament.json). There is no recovery option for draft/ player role selection without it.
 
 **AI Usage Declaration:**
-Generative AI tools have been used in development of this app (mostly in procedurally creating UI elements, debugging and testing).
+Generative AI tools have been used in development of this app (mostly in procedurally creating UI elements, debugging, app documentation, and testing data).
 
 **Licences/ Copyright:**
-1. All fonts used are under the ITF Free Font License (FFL) from [fontshare](https://fontshare.com/licenses/itf-ffl). Individual license information can be found in the license folder (Tournament\assets\fonts\license).
+1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). Individual license information can be found in the license folder (Tournament\assets\fonts\license).
 2. All music used in this project is sourced under open-access from [Pixabay](https://pixabay.com/service/terms/). Individual license information can be found in the license folder (Tournmanet\assets\audio\license).
+3. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
