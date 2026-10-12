@@ -30,10 +30,10 @@ Generative AI tools have been used in development of this app (primarily in proc
 **Licences/ Copyright:**
 1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). 
 2. All music used in this project is sourced under creative commons open license from [OpenGameArt](https://opengameart.org/).
-   a. [Chippey](https://opengameart.org/content/chippey) by [Chasersgaming]([https://opengameart.org/content/chippey](https://opengameart.org/users/chasersgaming))
-   b. [Andy's Report](https://opengameart.org/content/andys-report-8bit-and-piano-ver) by [megupets](www.megupets.com)
-   c. [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
-   d. [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
-   e. [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
-   f. [Sostén](https://opengameart.org/content/sost%C3%A9n) by [megupets](www.megupets.com)
+   [Chippey](https://opengameart.org/content/chippey) by [Chasersgaming]([https://opengameart.org/content/chippey](https://opengameart.org/users/chasersgaming))
+   [Andy's Report](https://opengameart.org/content/andys-report-8bit-and-piano-ver) by [megupets](www.megupets.com)
+   [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
+   [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
+   [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
+   [Sostén](https://opengameart.org/content/sost%C3%A9n) by [megupets](www.megupets.com)
 4. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
