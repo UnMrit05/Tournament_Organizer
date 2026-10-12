@@ -5,9 +5,9 @@ A Python based app to organize community (or otherwise) tournaments for Legally-
 All product names, logos, brands, trademarks, and registered trademarks are property of their respective owners. All company, product, and service names used in this project are for identification purposes only. Use of these names, trademarks, and brands does not imply endorsement or ownership, in whole or in part.
 
 **Pre-requisites:**
-1. Download and install Python 3.4 (or above). Make sure the tick box for 'add to PATH' is seleted when installing. Follow a guide to add to PATH in case Python is already installed but not added to environment variables yet. This setup is fundamental and mandatory.
+1. Download and install [Python](https://www.python.org/downloads/) 3.4 (or above). Make sure the tick box for 'add to PATH' is seleted when installing. Follow a guide to add to PATH in case Python is already installed but not added to environment variables yet. This setup is fundamental and mandatory.
 3. Install custom fonts by double clicking the .otf file(s) (Tournament\assets\fonts).
-4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\tournament_info.txt).
+4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\app_config.txt).
 5. Update players.csv (Tournament\data\players.csv) so it has the latest players details.
 6. Update character roster to include latest released characters (Tournament\data\characters.json).
 
@@ -22,12 +22,12 @@ The app in version 0.32 currently has two library dependencies. All dependies ar
 2. pygame-ce (for handling music and interaction sounds)
 
 **Notes:**
-1. Never delete the save file (Tournament\saves\last_tournament.json). There is no recovery option for draft/ player role selection without it.
+1. Never delete/ manually edit the save file (Tournament\saves\last_tournament.json). There is no way to recover session data if the file is deleted/ incorrectly parsed.
 
 **AI Usage Declaration:**
-Generative AI tools have been used in development of this app (mostly in procedurally creating UI elements, debugging, app documentation, and testing data).
+Generative AI tools have been used in development of this app (primarily in procedurally creating UI elements, debugging, app documentation, and testing data).
 
 **Licences/ Copyright:**
-1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). Individual license information can be found in the license folder (Tournament\assets\fonts\license).
+1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). 
 2. All music used in this project is sourced under open-access from [Pixabay](https://pixabay.com/service/terms/). Individual license information can be found in the license folder (Tournmanet\assets\audio\license).
 3. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
