@@ -6,10 +6,10 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 
 **Pre-requisites:**
 1. Download and install [Python](https://www.python.org/downloads/) 3.4 (or above). Make sure the tick box for 'add to PATH' is seleted when installing. Follow a guide to add to PATH in case Python is already installed but not added to environment variables yet. This setup is fundamental and mandatory.
-3. Install custom fonts by double clicking the .otf file(s) (Tournament\assets\fonts).
-4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\app_config.txt).
+3. Install custom fonts by double clicking the .otf file(s) (Tournament\assets\fonts)
+4. Changes to custom fonts by user can be configured through Information Configuration file (Tournament\assets\app_config.txt)
 5. Update players.csv (Tournament\data\players.csv) so it has the latest players details.
-6. Update character roster to include latest released characters (Tournament\data\characters.json).
+6. Update character roster to include latest released characters (Tournament\data\characters.json)
 
 **Usage:** 
 1. Download the Tournament.zip
@@ -17,6 +17,7 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 3. Open the folder and click run.bat
 
 **Dependencies:**
+
 The app in version 0.32 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
 1. pillow (for handling images and icons)
 2. pygame-ce (for handling music and interaction sounds)
@@ -25,15 +26,16 @@ The app in version 0.32 currently has two library dependencies. All dependies ar
 1. Never delete/ manually edit the save file (Tournament\saves\last_tournament.json). There is no way to recover session data if the file is deleted/ incorrectly parsed.
 
 **AI Usage Declaration:**
-Generative AI tools have been used in development of this app (primarily in procedurally creating UI elements, debugging, app documentation, and testing data).
+
+Generative AI tools have been used in development of this app (primarily in procedurally creating UI elements, debugging, app documentation, and testing data)
 
 **Licences/ Copyright:**
 1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). 
 2. All music used in this project is sourced under creative commons open license from [OpenGameArt](https://opengameart.org/).
-   [Chippey](https://opengameart.org/content/chippey) by [Chasersgaming]([https://opengameart.org/content/chippey](https://opengameart.org/users/chasersgaming))
-   [Andy's Report](https://opengameart.org/content/andys-report-8bit-and-piano-ver) by [megupets](www.megupets.com)
-   [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
-   [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
-   [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
-   [Sostén](https://opengameart.org/content/sost%C3%A9n) by [megupets](www.megupets.com)
+    - [Chippey](https://opengameart.org/content/chippey) by [Chasersgaming](https://opengameart.org/users/chasersgaming)
+    - [Andy's Report](https://opengameart.org/content/andys-report-8bit-and-piano-ver) by [megupets](www.megupets.com)
+    - [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
+    - [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
+    - [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
+    - [Sostén](https://opengameart.org/content/sost%C3%A9n) by [megupets](www.megupets.com)
 4. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
