@@ -37,5 +37,5 @@ Generative AI tools have been used in development of this app (primarily in proc
     - [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
     - [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
     - [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
-    - [Sostén](https://opengameart.org/content/sost%C3%A9n) by [megupets](www.megupets.com)
+    - [Transformansion Ending](https://opengameart.org/content/transformansion-ending) by [Emma_MA](https://opengameart.org/users/emmama)
 4. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
