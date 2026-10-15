@@ -1,0 +1,292 @@
+{
+  "status": "Spin",
+  "saved_at": "2026-10-15T20:57:11",
+  "state": {
+    "tournament_type": "mystery",
+    "bracket_type": null,
+    "bracket_order": [
+      "Quill",
+      "Marrow",
+      "Ion",
+      "Fenwick",
+      "Sable",
+      "Juniper",
+      "Ember",
+      "Moss"
+    ],
+    "teams": [
+      {
+        "captain": "Quill",
+        "name": "quill_live's Team",
+        "slots": [
+          "Drift",
+          "Jinx",
+          "Gale",
+          "Kestrel",
+          "Pixel"
+        ],
+        "slot_min_rank": [
+          "Eternity",
+          "Celestial",
+          "Celestial",
+          "Celestial",
+          "Celestial"
+        ],
+        "roles": {
+          "Quill": "Vanguard",
+          "Drift": "Duelist",
+          "Jinx": "Vanguard",
+          "Gale": "Strategist",
+          "Kestrel": "Duelist",
+          "Pixel": "Strategist"
+        },
+        "characters": {
+          "Quill": "Hulk",
+          "Drift": "Black Panther",
+          "Jinx": "Doctor Strange",
+          "Gale": "Jeff the Land Shark",
+          "Kestrel": "Gorr the God Butcher",
+          "Pixel": "Loki"
+        }
+      },
+      {
+        "captain": "Marrow",
+        "name": "marrowgg's Team",
+        "slots": [
+          "Lumen",
+          "Rael",
+          "Echo_9",
+          "Doba_Fett",
+          "Wraith"
+        ],
+        "slot_min_rank": [
+          "Celestial",
+          "Celestial",
+          "Celestial",
+          "Grand Master",
+          "Grand Master"
+        ],
+        "roles": {
+          "Marrow": "Duelist",
+          "Lumen": "Duelist",
+          "Rael": "Vanguard",
+          "Echo_9": "Strategist",
+          "Doba_Fett": "Strategist",
+          "Wraith": "Vanguard"
+        },
+        "characters": {
+          "Marrow": "The Punisher",
+          "Lumen": "Hawkeye",
+          "Rael": "Angela",
+          "Echo_9": "Mantis",
+          "Doba_Fett": "Rocket Raccoon",
+          "Wraith": "Emma Frost"
+        }
+      },
+      {
+        "captain": "Ion",
+        "name": "ion_ttv's Team",
+        "slots": [
+          "Grit",
+          "Priya",
+          "Mox",
+          "Abel",
+          "Birch"
+        ],
+        "slot_min_rank": [
+          "Diamond",
+          "Diamond",
+          "Diamond",
+          "Diamond",
+          "Diamond"
+        ],
+        "roles": {
+          "Ion": "Duelist",
+          "Grit": "Vanguard",
+          "Priya": "Strategist",
+          "Mox": "Vanguard",
+          "Abel": "Duelist",
+          "Birch": "Strategist"
+        },
+        "characters": {
+          "Ion": "Iron Man",
+          "Grit": "Captain America",
+          "Priya": "Invisible Woman",
+          "Mox": "Angela",
+          "Abel": "Elsa Bloodstone",
+          "Birch": "Jubilee"
+        }
+      },
+      {
+        "captain": "Fenwick",
+        "name": "fenwick_stream's Team",
+        "slots": [
+          "Yuki_R",
+          "Kilo",
+          "Static",
+          "Vane",
+          "Cassius"
+        ],
+        "slot_min_rank": [
+          "Diamond",
+          "Diamond",
+          "Platinum",
+          "Platinum",
+          "Platinum"
+        ],
+        "roles": {
+          "Fenwick": "Vanguard",
+          "Yuki_R": "Strategist",
+          "Kilo": "Duelist",
+          "Static": "Strategist",
+          "Vane": "Duelist",
+          "Cassius": "Vanguard"
+        },
+        "characters": {
+          "Fenwick": "Thor",
+          "Yuki_R": "Cloak & Dagger",
+          "Kilo": "Human Torch",
+          "Static": "Rocket Raccoon",
+          "Vane": "Scarlet Witch",
+          "Cassius": "Deadpool"
+        }
+      },
+      {
+        "captain": "Sable",
+        "name": "sable_stream's Team",
+        "slots": [
+          "Hexx",
+          "Six_Shooter",
+          "Wisp",
+          "Nyx",
+          "Delta"
+        ],
+        "slot_min_rank": [
+          "Platinum",
+          "Platinum",
+          "Platinum",
+          "Platinum",
+          "Platinum"
+        ],
+        "roles": {
+          "Sable": "Duelist",
+          "Hexx": "Vanguard",
+          "Six_Shooter": "Strategist",
+          "Wisp": "Vanguard",
+          "Nyx": "Duelist",
+          "Delta": "Strategist"
+        },
+        "characters": {
+          "Sable": "Hela",
+          "Hexx": "Rogue",
+          "Six_Shooter": "Jubilee",
+          "Wisp": "Captain America",
+          "Nyx": "Human Torch",
+          "Delta": "Luna Snow"
+        }
+      },
+      {
+        "captain": "Juniper",
+        "name": "juniper_ttv's Team",
+        "slots": [
+          "Zephyr",
+          "Xerus",
+          "Ezra",
+          "Talon",
+          "Grubhub_9"
+        ],
+        "slot_min_rank": [
+          "Gold",
+          "Gold",
+          "Gold",
+          "Gold",
+          "Silver"
+        ],
+        "roles": {
+          "Juniper": "Duelist",
+          "Zephyr": "Strategist",
+          "Xerus": "Vanguard",
+          "Ezra": "Duelist",
+          "Talon": "Vanguard",
+          "Grubhub_9": "Strategist"
+        },
+        "characters": {
+          "Juniper": "Spider-Man",
+          "Zephyr": "Ultron",
+          "Xerus": "Deadpool",
+          "Ezra": "Psylocke",
+          "Talon": "Magneto",
+          "Grubhub_9": "White Fox"
+        }
+      },
+      {
+        "captain": "Ember",
+        "name": "ember_live's Team",
+        "slots": [
+          "Cinder",
+          "Vex",
+          "Yara",
+          "Umbra",
+          "Rune"
+        ],
+        "slot_min_rank": [
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver"
+        ],
+        "roles": {
+          "Ember": "Strategist",
+          "Cinder": "Strategist",
+          "Vex": "Vanguard",
+          "Yara": "Vanguard",
+          "Umbra": "Duelist",
+          "Rune": "Duelist"
+        },
+        "characters": {
+          "Ember": "Deadpool",
+          "Cinder": "Mantis",
+          "Vex": "Peni Parker",
+          "Yara": "Emma Frost",
+          "Umbra": "Black Cat",
+          "Rune": "Hela"
+        }
+      },
+      {
+        "captain": "Moss",
+        "name": "moss_stream's Team",
+        "slots": [
+          "Halo_Kid",
+          "Frostbyte",
+          "Ragna",
+          "Brynn",
+          "Solstice"
+        ],
+        "slot_min_rank": [
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver",
+          "Silver"
+        ],
+        "roles": {
+          "Moss": "Strategist",
+          "Halo_Kid": "Duelist",
+          "Frostbyte": "Strategist",
+          "Ragna": "Vanguard",
+          "Brynn": "Vanguard",
+          "Solstice": "Duelist"
+        },
+        "characters": {
+          "Moss": "Luna Snow",
+          "Halo_Kid": "Hela",
+          "Frostbyte": "Mantis",
+          "Ragna": "Doctor Strange",
+          "Brynn": "The Hood",
+          "Solstice": "Iron Man"
+        }
+      }
+    ]
+  }
+}
