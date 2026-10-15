@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "game": "Marvel Rivals",
+  "season": "Season 10",
+  "lastVerified": "2026-09-26",
+  "characterCount": 54,
+  "characters": [
+    {
+      "name": "Adam Warlock",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Black Panther",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Black Widow",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Captain America",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Cloak & Dagger",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Doctor Strange",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Groot",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Hawkeye",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Hela",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Hulk",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Iron Fist",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Iron Man",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Jeff the Land Shark",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Loki",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Luna Snow",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Magik",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Magneto",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Mantis",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Moon Knight",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Namor",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Peni Parker",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Psylocke",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "The Punisher",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Rocket Raccoon",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Scarlet Witch",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Spider-Man",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Squirrel Girl",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Star-Lord",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Storm",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Thor",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Venom",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Winter Soldier",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Wolverine",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Mister Fantastic",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Invisible Woman",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Human Torch",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "The Thing",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Emma Frost",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Ultron",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Phoenix",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Blade",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Angela",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Daredevil",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Gambit",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Rogue",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Deadpool",
+      "roles": [
+        "Vanguard",
+        "Duelist",
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Elsa Bloodstone",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "White Fox",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "Black Cat",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Devil Dinosaur",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Cyclops",
+      "roles": [
+        "Duelist"
+      ]
+    },
+    {
+      "name": "Jubilee",
+      "roles": [
+        "Strategist"
+      ]
+    },
+    {
+      "name": "The Hood",
+      "roles": [
+        "Vanguard"
+      ]
+    },
+    {
+      "name": "Gorr the God Butcher",
+      "roles": [
+        "Duelist"
+      ]
+    }
+  ]
+}
