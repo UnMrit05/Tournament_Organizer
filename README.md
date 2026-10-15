@@ -18,7 +18,7 @@ All product names, logos, brands, trademarks, and registered trademarks are prop
 
 **Dependencies:**
 
-The app in version 0.32 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
+The app in version 0.36 currently has two library dependencies. All dependies are auto-handled when the app is launched for the first time on any device.
 1. pillow (for handling images and icons)
 2. pygame-ce (for handling music and interaction sounds)
 
@@ -31,11 +31,12 @@ Generative AI tools have been used in development of this app (primarily in proc
 
 **Licences/ Copyright:**
 1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). 
-2. All music used in this project is sourced under creative commons open license from [OpenGameArt](https://opengameart.org/).
+2. All music/ sfx used in this project is sourced under creative commons open license from [OpenGameArt](https://opengameart.org/) and [Pixabay](https://pixabay.com/).
     - [Chippey](https://opengameart.org/content/chippey) by [Chasersgaming](https://opengameart.org/users/chasersgaming)
     - [Andy's Report](https://opengameart.org/content/andys-report-8bit-and-piano-ver) by [megupets](www.megupets.com)
     - [Space Music: Out There](https://opengameart.org/content/space-music-out-there) by [yd](https://opengameart.org/users/yd)
     - [Emerge](https://opengameart.org/content/emerge) by [SpiderDave](https://opengameart.org/users/spiderdave)
     - [Doodle Menu like song](https://opengameart.org/content/doodle-menu-like-song) by [StumpyStrust](https://opengameart.org/users/stumpystrust)
     - [Transformansion Ending](https://opengameart.org/content/transformansion-ending) by [Emma_MA](https://opengameart.org/users/emmama)
+    - [Click](https://pixabay.com/users/aceeldon-56962188/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=578399) by [Ace Eldon](https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=578399).
 4. All icons used in this project are sourced under open access from [iconshock](https://www.iconshock.com/freeicons/icons-search?tagSearch=castle). 
