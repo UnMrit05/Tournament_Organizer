@@ -25,10 +25,6 @@ The app in version 0.36 currently has two library dependencies. All dependies ar
 **Notes:**
 1. Never delete/ manually edit the save file (Tournament\saves\last_tournament.json). There is no way to recover session data if the file is deleted/ incorrectly parsed.
 
-**AI Usage Declaration:**
-
-Generative AI tools have been used in development of this app (primarily in procedurally creating UI elements, debugging, app documentation, and testing data)
-
 **Licences/ Copyright:**
 1. All fonts used in this project are aourced under open-access from [fontshare](https://fontshare.com/licenses/itf-ffl). 
 2. All music/ sfx used in this project is sourced under creative commons open license from [OpenGameArt](https://opengameart.org/) and [Pixabay](https://pixabay.com/).
