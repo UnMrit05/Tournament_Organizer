@@ -112,9 +112,9 @@ class SeedingScreen(tk.Frame):
             cap_row = tk.Frame(slots_frame, bg=theme.PANEL)
             cap_row.pack(fill="x", pady=3)
             cap_name = name_with_platform(cap_row, team.captain, theme.PANEL,
-                                             name_font=theme.FONT_BODY, name_fg=theme.GOLD)
-            cap_name.pack(side="left")
-            role_icons(cap_row, team.captain, theme.PANEL).pack(side="left", padx=8)
+                                             name_font=theme.FONT_BODY, name_fg=theme.GOLD,
+                                             show_roles=True)
+            cap_name.pack(side="left")            
             tk.Label(cap_row, text=team.captain.peak_rank, fg=theme.DIM, bg=theme.PANEL,
                       font=theme.FONT_SMALL).pack(side="right")
 

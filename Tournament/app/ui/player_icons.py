@@ -43,7 +43,8 @@ def platform_badge(parent, platform: str, bg: str, size: int = 18):
 
 
 def name_with_platform(parent, player, bg: str, name_font=None, sub_font=None,
-                         name_fg=None, platform_size: int = 18, show_sub: bool = True):
+                         name_fg=None, platform_size: int = 18, show_sub: bool = True,
+                         show_roles: bool = False, role_size: int = 14):
     """Makes the player's Twitch/YouTube name with their platform badge, plus their in-game name underneath unless show_sub is False."""
     col = tk.Frame(parent, bg=bg)
     top = tk.Frame(col, bg=bg)
@@ -53,6 +54,8 @@ def name_with_platform(parent, player, bg: str, name_font=None, sub_font=None,
     badge = platform_badge(top, player.platform, bg, platform_size)
     if badge is not None:
         badge.pack(side="left", padx=(6, 0))
+    if show_roles:
+        role_icons(top, player, bg, size=role_size).pack(side="left", padx=(6, 0))    
     if show_sub:
         tk.Label(col, text=player.ign, bg=bg, fg=theme.DIM,
                   font=sub_font or theme.FONT_SMALL).pack(anchor="w")
