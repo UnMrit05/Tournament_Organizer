@@ -9,7 +9,7 @@ Windows desktop app for running a community hero-shooter tournament: draft teams
 | **Network** | None. |
 | **Licence** | MIT (shown on the Greeting screen) |
 
-**Contents:** [Disclaimer](#Disclaimer) · [Quick start](#quick-start) · [Screen flow](#screen-flow) · [Data files](#data-files) · [Configuration](#configuration) · [Toolbar](#toolbar) · [Pop-ups](#pop-ups) · [Audio](#audio) · [Screens in detail](#screens-in-detail) · [Folder structure](#folder-structure) 
+**Contents:** [Disclaimer](#Disclaimer) · [Licences](#Licences) · [Quick start](#quick-start) · [Screen flow](#screen-flow) · [Data files](#data-files) · [Configuration](#configuration) · [Toolbar](#toolbar) · [Pop-ups](#pop-ups) · [Audio](#audio) · [Screens in detail](#screens-in-detail) · [Folder structure](#folder-structure) 
 
 ---
 
@@ -28,6 +28,31 @@ I did not create, and do not own, the game or anything from it.
   publisher in any way. It is an unofficial fan-made tool.
 
 No infringement is intended. 
+
+---
+
+## Licences
+
+**The app itself** is open source under the **GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007** 
+
+**Everything bundled in `assets/`** — the fonts, the icons and the audio — was made by other
+people and is included under a free or open-source licence that permits redistribution. The
+licence text for each sits in a `licenses/` folder next to the files it covers:
+
+| What | Where it lives | Licence text |
+|---|---|---|
+| Fonts | `assets/fonts/` | `assets/fonts/licenses/` |
+| Music | `assets/audio/music/` | `assets/audio/music/licenses/` |
+| Sound effects | `assets/audio/sfx/` | `assets/audio/sfx/licenses/` |
+| Icons | `assets/icons/` | alongside the files |
+
+Please read those files before redistributing anything from this folder — a few licences ask for
+attribution, and they are the authority, not this page.
+
+**If you swap in your own fonts, icons or music**, put their licence in the matching `licenses/`
+folder so the next person knows where it came from. If you are distributing this app onward,
+either keep each licence file with its asset or replace the asset with something you are allowed
+to ship.
 
 ---
 
