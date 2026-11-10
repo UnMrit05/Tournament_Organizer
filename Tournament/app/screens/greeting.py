@@ -8,7 +8,7 @@ from app.ui.pop_anim import pop_in
 from app.ui.stage import POP_DELAY_MS, Stage
 from app.ui.widgets import AccentBar, Chip, GlassButton, Panel
 
-APP_LICENSE = "MIT License"
+APP_LICENSE = "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007"
 HERO_W = 816
 
 
