@@ -1,4 +1,4 @@
-All music used in this project is sourced under creative commons open license from OpenGameArthttps://opengameart.org/
+All music used in this project is sourced under creative commons open license from OpenGameArt https://opengameart.org/ OR Pixabay https://pixabay.com/
 
 
 Song: Chippey
@@ -6,10 +6,10 @@ URL: https://opengameart.org/content/chippey
 Artist: Chasersgaming
 Artist Credit: https://opengameart.org/users/chasersgaming
 
-Song: Andy's Report
-URL: https://opengameart.org/content/andys-report-8bit-and-piano-ver 
-Artist: megupets
-Artist Credit: www.megupets.com
+Song: Soft
+URL: https://pixabay.com/music/soft-house-soft-589816/
+Artist: Nikita Kondrashev
+Artist Credit: https://pixabay.com/users/leberch-42823964/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=589816
 
 Song: Space Music: Out There
 URL: https://opengameart.org/content/space-music-out-there 
